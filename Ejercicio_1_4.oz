@@ -1,16 +1,16 @@
 local Append Xs Ys L1 L2  in
 
    fun {Append Xs Ys}
-      local YH YT in
-	 case YH|YT = Ys of YH|nil then Xs|YH
-	 else {Append Xs YT}
-	 end
+      case Xs#Ys of Xh|nil#_ then Xs
+      [] _#Yh|nil then Ys
+      [] Xh|Xt#Yh|Yt then
+	 Xs.1|Ys.1|{Append Xs.2 Ys.2}
       end
    end
    
 
-   L1 = [1 2 3]
-   L2 = [5 6]
+   L1 = [1 2]
+   L2 = [4 5]
 
    {Browse {Append L1 L2}}
 end
